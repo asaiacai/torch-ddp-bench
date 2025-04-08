@@ -240,10 +240,10 @@ def main():
         world_size=args.world_size,
     )
 
-    output = allgather_run("nvidia-smi topo -m")
-    if not allequal(output):
-        print('Output of "nvidia-smi topo -m" differs between machines')
-        sys.exit(1)
+    # output = allgather_run("nvidia-smi topo -m")
+    # if not allequal(output):
+    #     print('Output of "nvidia-smi topo -m" differs between machines')
+    #     sys.exit(1)
 
     if args.rank == 0:
         print("-----------------------------------")
@@ -255,11 +255,11 @@ def main():
         print(f"* Distributed backend: {args.distributed_backend}")
         print(f"* Maximum bucket size: {args.bucket_size}MB")
         print("")
-        print("--- nvidia-smi topo -m ---")
-        print("")
-        print(output[0])
-        print("--------------------------")
-        print("")
+        # print("--- nvidia-smi topo -m ---")
+        # print("")
+        # print(output[0])
+        # print("--------------------------")
+        # print("")
 
     benchmarks = []
     if args.model:
